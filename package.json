@@ -1,0 +1,25 @@
+{
+  "name": "caching_proxy_for_tests",
+  "version": "1.0.0",
+  "description": "a caching proxy that sits between an application and the web services on which it depends.  Allows you to test your application's performace without impacting underline services.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanssucre/node_caching_proxy.git"
+  },
+  "keywords": [
+    "caching",
+    "proxy",
+    "load",
+    "testing"
+  ],
+  "author": "Alain Gaeremynck",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sanssucre/node_caching_proxy/issues"
+  },
+  "homepage": "https://github.com/sanssucre/node_caching_proxy#readme"
+}
