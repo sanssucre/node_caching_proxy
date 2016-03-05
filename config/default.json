@@ -1,0 +1,13 @@
+{
+  "domains":{
+    "localhost" : {
+      "protocol":"http",
+      "latency":false,
+      "origin":"api.yellowpages.ca"
+    },
+    "shrek.local" : {
+      "protocol":"http",
+      "latency":false
+    }
+  }
+}
