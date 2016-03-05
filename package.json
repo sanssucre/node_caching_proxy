@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/sanssucre/node_caching_proxy#readme",
   "dependencies": {
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "config": "^1.0"
   }
 }
