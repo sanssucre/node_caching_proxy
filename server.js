@@ -1,15 +1,41 @@
 "use strict";
 var http = require('http');
-var service = require('./lib');
+var services = require('./lib');
+var configs = require('config');
 
+// Wrapper class to parse the request
+class RequestDomainInfo {
+  constructor(request){
+    for(var key in request.headers)
+      console.log(key + ":" + request.headers[key]);
 
+    this.host = request.headers["host"];
+    this.fqdn = this.host;
+    let indexOfSemiColon = this.host.lastIndexOf(":");
+    if(indexOfSemiColon>-1)
+      this.fqdn = this.host.substring(0,indexOfSemiColon);
+    let protocol = request.protocol? request.protocol : "http://";
+    this.url = protocol + this.host + request.url;
+    console.log(this.url);
+  }
+}
 
-var proxy = new service.Proxy();
+var proxy = new services.Proxy(configs);
 
 var server = http.createServer(function(request, response) {
-	response.setHeader('Content-Type', 'text/plain');
-	response.write(proxy.get(request) + "\n");
-	response.end();
+  let rInfo = new RequestDomainInfo(request);
+  if(! proxy.isAllowed(rInfo.fqdn)){
+    response.setHeader('Content-Type', 'text/plain');
+    response.statusCode = 401;
+    response.write("go away you leach \n");
+    response.end();
+  }else{
+    proxy.get(function(payload){
+      response.write(payload);
+      response.end();
+      console.log("wtf???");
+    }, rInfo.fqdn);
+  }
 });
-console.log("listening")
+console.log("listening");
 server.listen(8080);
