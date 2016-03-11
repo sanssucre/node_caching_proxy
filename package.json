@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/sanssucre/node_caching_proxy#readme",
   "dependencies": {
+    "config": "^1.0",
+    "http": "^0.0.0",
     "mocha": "^2.4.5",
-    "config": "^1.0"
+    "node-fetch": "^1.3.3"
   }
 }

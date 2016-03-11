@@ -3,11 +3,12 @@
     "localhost" : {
       "protocol":"http",
       "latency":false,
-      "origin":"api.yellowpages.ca"
+      "origin":"www.yellowpages.ca"
     },
     "shrek.local" : {
       "protocol":"http",
-      "latency":false
+      "latency":false,
+      "origin":"www.google.ca"
     }
   }
 }
